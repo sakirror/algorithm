@@ -58,6 +58,9 @@ class Graham:
         return edge
 
     def _is_clockwise(self, p1, p2, p3):
+        """
+        外積を使って時計回りか判定する.
+        """
         return (p2.y - p1.y)*(p3.x - p1.x) - (p2.x - p1.x)*(p3.y - p1.y) > 0
 
     def _get_xylist(self, l):
