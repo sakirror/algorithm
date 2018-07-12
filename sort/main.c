@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
         void (*sort)(int *, const int);
     } tbl[] = {
         {"insertion", insertion_sort},
+        {"heap", heap_sort},
     };
     int *list = NULL;
 
