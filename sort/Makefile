@@ -6,10 +6,13 @@ LNNAME = $(filter-out main,$(SRC:.c=)) # without main.c
 all:$(TARGET)
 	$(foreach name, $(LNNAME), $(shell ln -sf $(TARGET) $(CMDDIR)/$(name)))
 
-$(TARGET):
+$(TARGET): dir
 	gcc $(SRC) -o $(TARGET)
 
-clean:
+clean: dir
 	rm $(CMDDIR)/*
 
-.PHONY : all clean
+dir:
+	@mkdir -p $(CMDDIR)
+
+.PHONY : all clean dir
